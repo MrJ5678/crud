@@ -2,20 +2,21 @@
  * @Author: hhhhhq
  * @Date: 2020-05-15 17:13:15
  * @LastEditors: hhhhhq
- * @LastEditTime: 2020-05-15 20:11:46
+ * @LastEditTime: 2020-05-17 17:32:41
  * @Description: file content
  */ 
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { fetchGames } from '../actions'
+import { fetchGames, deleteGame } from '../actions'
 
 import GamesList from './GamesList'
 
 class GamesPage extends Component {
   static propTypes = {
     games: PropTypes.array.isRequired,
-    fetchGames: PropTypes.func.isRequired
+    fetchGames: PropTypes.func.isRequired,
+    deleteGame: PropTypes.func.isRequired
   }
   componentDidMount() {
     this.props.fetchGames()
@@ -23,7 +24,7 @@ class GamesPage extends Component {
 
   render() {
     return (
-     <GamesList games={ this.props.games }/>
+     <GamesList games={ this.props.games } deleteGame={ this.props.deleteGame }/>
     )
   }
 }
@@ -34,4 +35,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { fetchGames })(GamesPage)
+export default connect(mapStateToProps, { fetchGames, deleteGame })(GamesPage)

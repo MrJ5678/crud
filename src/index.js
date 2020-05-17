@@ -2,7 +2,7 @@
  * @Author: hhhhhq
  * @Date: 2020-04-11 21:43:44
  * @LastEditors: hhhhhq
- * @LastEditTime: 2020-05-15 19:42:01
+ * @LastEditTime: 2020-05-17 10:48:21
  * @Description: file content
  */ 
 import React from 'react';
@@ -18,7 +18,7 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 
 import App from './components/App';
 import GamesPage from './components/GamesPage'
-import GameForm from './components/GameForm'
+import GameFormPage from './components/GameFormPage'
 
 const store = createStore(
   rootReducer,
@@ -42,7 +42,8 @@ ReactDOM.render(
         </div>
         <Route exact path="/" component={ App }/>
         <Route exact path="/games" component={ GamesPage }/>
-        <Route path="/games/new" component={ GameForm }/>
+        <Route path="/games/new" component={ GameFormPage }/>
+        <Route path="/game/:_id" component={ GameFormPage }/>
       </div>
     </Router>
   </Provider>,
